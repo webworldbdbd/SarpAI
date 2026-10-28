@@ -1,0 +1,28 @@
+name: Unpack project ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Unzip project into repository root
+        run: |
+          unzip -o SARP-AI-Fixed.zip -x ".github/*"
+          rm SARP-AI-Fixed.zip
+          ls -la
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Unpack project files from ZIP"
+          git push
