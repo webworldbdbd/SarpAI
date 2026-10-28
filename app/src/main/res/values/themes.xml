@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.Sarp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/sarp_navy</item>
+    </style>
+    <color name="sarp_navy">#0A1030</color>
+</resources>
